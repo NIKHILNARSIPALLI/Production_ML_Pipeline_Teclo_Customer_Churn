@@ -4,7 +4,8 @@ from pathlib import Path
 
 
 #Let's create a log folder
-log_dir = Path()
+log_dir = Path(__file__).resolve().parent.parent
+log_dir = log_dir.joinpath("data", "logs")
 log_dir.mkdir(exist_ok=True)
 
 #Let's name the log file for this run

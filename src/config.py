@@ -5,7 +5,7 @@ import yaml
 
 
 #Let's set up the logger
-from logger import set_logger
+from src.logger import set_logger
 
 logger = set_logger(__name__)
 
@@ -27,7 +27,7 @@ def create_config(config_class: type, raw: dict, strict=True):
 
 
      # Let's get all fields from the dataclass and filter the fields that we need to pass to the config_class
-     valid_fields = {(field.name for field in fields(config_class))}
+     valid_fields = {field.name for field in fields(config_class)}
 
      #Before moving futher let's make sure all the value's mentioned in the yaml file
      # for that specific field have been used up or if we are missing any key parameters
@@ -46,7 +46,7 @@ def create_config(config_class: type, raw: dict, strict=True):
         if key in valid_fields
     }
 
-     if filtered == None:
+     if not filtered:
          logger.warning(f"Filtered configs for {config_class.__name__} class is empty")
 
      logger.info(f"Created config class for {config_class.__name__}")
@@ -56,12 +56,6 @@ def create_config(config_class: type, raw: dict, strict=True):
 
 
 
-# This contains the configs of all the dataclasses and defines which class object each name contains
-@dataclass
-class Configs:
-     dataset : DatasetConfig # type: ignore
-     model : ModelConfig # type: ignore
-     training: TrainingConfig # type: ignore
 
 
 # This class is created to make objects for each of the config parameters
@@ -73,15 +67,37 @@ class DatasetConfig:
 
 @dataclass
 class ModelConfig:
-     None # type: ignore
+     model_name :str # type: ignore
+     model_type :str # type: ignore
 
 
 @dataclass
 class TrainingConfig:
-     None # type: ignore
+     batch_size : int # type: ignore
 
 
 
+@dataclass
+class UnitTest:
+     parameter1 : str
+     parameter2 : str
+     parameter3 : str
+
+@dataclass
+class UnitTest_Missing_Parameter:
+     parameter1 : str
+     parameter2 : str
+     parameter3 : str#missinf parameter 3
+
+
+# This contains the configs of all the dataclasses and defines which class object each name contains
+@dataclass
+class Configs:
+     dataset : DatasetConfig # type: ignore
+     model : ModelConfig # type: ignore
+     training: TrainingConfig # type: ignore
+     unitTest : UnitTest # type: ignore
+     unitTestMissingParameter : UnitTest_Missing_Parameter # type: ignore
 
 
 
@@ -105,15 +121,25 @@ def load_config() -> Configs:
      return Configs(
           dataset = create_config(
                DatasetConfig, raw["dataset"]
-          ),
+          ),# type: ignore
 
           model = create_config(
                ModelConfig, raw["model"]
-          ),
+          ),# type: ignore
 
           training = create_config(
                TrainingConfig, raw["train"]
-          )
+          ),# type: ignore
+
+          unitTest = create_config(
+               UnitTest, raw["UnitTest"]
+          ),# type: ignore
+
+          unitTestMissingParameter= create_config(
+               UnitTest_Missing_Parameter, raw["UnitTest"]
+          )# type: ignore
+
+
      )
 
 """

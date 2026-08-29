@@ -1,0 +1,6 @@
+2026-08-29 17:17:22,736 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-29 17:17:22,736 | INFO | src.config | Created config class for DatasetConfig
+2026-08-29 17:17:22,736 | INFO | src.config | Created config class for ModelConfig
+2026-08-29 17:17:22,737 | INFO | src.config | Created config class for TrainingConfig
+2026-08-29 17:17:22,737 | INFO | src.config | Created config class for UnitTest
+2026-08-29 17:17:22,737 | CRITICAL | src.config | Unkown parameters found in UnitTest_Missing_Parameter class: {'parameter3'}

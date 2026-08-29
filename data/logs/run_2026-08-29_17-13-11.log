@@ -1,0 +1,2 @@
+2026-08-29 17:13:11,252 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-29 17:13:11,253 | CRITICAL | src.config | Unkown parameters found in DatasetConfig class: {'root_dir', 'train_subdir', 'test_subdir'}

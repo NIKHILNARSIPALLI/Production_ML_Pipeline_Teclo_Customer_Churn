@@ -1,0 +1,16 @@
+UnitTest:
+  parameter1 : "Pass"
+  parameter2 : "Pass"
+  parameter3 : "Fail"
+
+dataset:
+  root_dir: "MNIST"
+  train_subdir: "train"
+  test_subdir: "test"
+
+model:
+  model_name: "CNN"
+  model_type: "CNN"
+  
+train:
+  batch_size: 32
