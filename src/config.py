@@ -5,6 +5,7 @@ import yaml
 
 
 #Let's set up the logger
+import data
 from src.logger import set_logger
 
 logger = set_logger(__name__)
@@ -83,11 +84,14 @@ class UnitTest:
      parameter2 : str
      parameter3 : str
 
+
 @dataclass
-class UnitTest_Missing_Parameter:
-     parameter1 : str
-     parameter2 : str
-     parameter3 : str#missinf parameter 3
+class DataPath:
+     root_dir: str
+     raw_data_dir: str
+     datasetName : str
+     processed_data_dir: str
+     cleaened_datasetName : str
 
 
 # This contains the configs of all the dataclasses and defines which class object each name contains
@@ -97,7 +101,7 @@ class Configs:
      model : ModelConfig # type: ignore
      training: TrainingConfig # type: ignore
      unitTest : UnitTest # type: ignore
-     unitTestMissingParameter : UnitTest_Missing_Parameter # type: ignore
+     dataPath : DataPath
 
 
 
@@ -135,8 +139,8 @@ def load_config() -> Configs:
                UnitTest, raw["UnitTest"]
           ),# type: ignore
 
-          unitTestMissingParameter= create_config(
-               UnitTest_Missing_Parameter, raw["UnitTest"]
+          dataPath= create_config(
+               DataPath, raw["DataPath"]
           )# type: ignore
 
 
@@ -145,7 +149,7 @@ def load_config() -> Configs:
 """
 So, now in other python files we can simply call the function load_congig
 and then get its parameters ex: 
-from src.config_paths import load_config
+from src.config import load_config
 
 config = load_config()
 

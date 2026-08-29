@@ -3,6 +3,14 @@ UnitTest:
   parameter2 : "Pass"
   parameter3 : "Fail"
 
+DataPath:
+  root_dir: "data"
+  raw_data_dir: "raw_data"
+  processed_data_dir: "processed_data"
+  datasetName : "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+  cleaened_datasetName : "cleaned_data.csv"
+
+
 dataset:
   root_dir: "MNIST"
   train_subdir: "train"
@@ -11,6 +19,6 @@ dataset:
 model:
   model_name: "CNN"
   model_type: "CNN"
-  
+
 train:
   batch_size: 32
