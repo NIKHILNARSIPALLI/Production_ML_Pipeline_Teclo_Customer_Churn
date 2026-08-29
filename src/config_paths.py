@@ -1,33 +1,110 @@
 from dataclasses import dataclass
-from dataclasses import fields
-from pathlib import path
+from dataclasses import fields, is_dataclass
+from pathlib import Path
 import yaml
 
 
-#Let's create a function that filters the required fields from the Yaml file
-# such that when using across multiple yaml fields and yaml files that contains
-# more than required parameteres then this filtered values will help not raise error of more/less paramteres
-def create_config(config_class, raw: dict):
+"""
+Let's create a function that filters the required fields from one of the Yaml file key:values pair
+such that when using across multiple yaml fields and yaml files that contains
+more than required parameteres then this filtered values will help not raise error of more/less paramteres
+So, ideally input would be a yaml_file["Key"], and output would be the value pairs inside the key sent to the specfici object
+"""
+def create_config(config_class: type, raw: dict, strict=True):
 
-    valid_fields = (fields.name for field in fields(config_class))
+    # We want to make sure the config_class is an actual data class before moving further
+    if not is_dataclass(config_class):
+        raise TypeError(f"{config_class.__name__} must be a dataclass")
+
+
+    # Let's get all fields from the dataclass and filter the fields that we need to pass to the config_class
+    valid_fields = {(field.name for field in fields(config_class))}
+
+    #Before moving futher let's make sure all the value's mentioned in the yaml file
+    # for that specific field have been used up or if we are missing any key parameters
+    unknown = set(raw) - valid_fields
+    if strict and unknown:
+         raise ValueError(
+              f"Unknown paramters for "
+              f"{config_class.__name__} : {unknown}"
+         )
+
+
     filtered = {
         key: value for
         key, value in raw.items()
         if key in valid_fields
     }
+
     return config_class(**filtered)
 
 
 
+
+# This contains the configs of all the dataclasses and defines which class object each name contains
+@dataclass
+class Configs:
+     dataset : DatasetConfig # type: ignore
+     model : ModelConfig # type: ignore
+     training: TrainingConfig # type: ignore
+
+
+# This class is created to make objects for each of the config parameters
+@dataclass
 class DatasetConfig:
+        root_dir : str
+        train_subdir : str
+        test_subdir :str
 
-    def __init__(self, root_dir : str, train_subdir : str, test_subdir : str) -> None:
-        self.root_dir = root_dir
-        self.train_subdir = train_subdir
-        self.test_subdir = test_subdir
+@dataclass
+class ModelConfig:
+     None # type: ignore
 
-class LoadData:
-    ...
+
+@dataclass
+class TrainingConfig:
+     None # type: ignore
+
+
+
+
+
+
+
+
+#This function defines the object
+def load_config() -> Configs:
+
+    #Main project file oath and relative yaml file path
+    main_dir = Path(__file__).resolve().parent.parent
+    yaml_path = main_dir.joinpath("configs","config.yaml")
+
+    raw = yaml.safe_load(open(yaml_path))
+
+    return Configs(
+         dataset = create_config(
+              DatasetConfig, raw["dataset"]
+         ),
+
+         model = create_config(
+              ModelConfig, raw["model"]
+         ),
+
+         training = create_config(
+              TrainingConfig, raw["train"]
+         )
+    )
+
+"""
+So, now in other python files we can simply call the function load_congig
+and then get its parameters ex: 
+from src.config_paths import load_config
+
+config = load_config()
+
+print(config.dataset.root_dir)
+
+"""
 
     
 
