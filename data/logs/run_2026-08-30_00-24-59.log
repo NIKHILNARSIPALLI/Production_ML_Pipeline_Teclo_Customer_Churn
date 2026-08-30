@@ -1,0 +1,20 @@
+2026-08-30 00:24:59,589 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-30 00:24:59,589 | INFO | src.config | Created config class for DatasetConfig
+2026-08-30 00:24:59,589 | INFO | src.config | Created config class for ModelConfig
+2026-08-30 00:24:59,589 | INFO | src.config | Created config class for TrainingConfig
+2026-08-30 00:24:59,589 | INFO | src.config | Created config class for UnitTest
+2026-08-30 00:24:59,589 | INFO | src.config | Created config class for DataPath
+2026-08-30 00:24:59,993 | INFO | __main__ | Starting data processing script
+2026-08-30 00:24:59,994 | INFO | __main__ | Starting data processing pipeline
+2026-08-30 00:24:59,994 | INFO | __main__ | Loading the data from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/raw_data/WA_Fn-UseC_-Telco-Customer-Churn.csv
+2026-08-30 00:25:03,799 | INFO | __main__ | Data loaded successfully from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/raw_data/WA_Fn-UseC_-Telco-Customer-Churn.csv
+2026-08-30 00:25:03,799 | INFO | __main__ | Data shape: 7043Rows, 21 Columns
+2026-08-30 00:25:03,799 | INFO | __main__ | Validating the columns of the dataset
+2026-08-30 00:25:03,799 | INFO | __main__ | Validation Complete - Columns in the dataset are as expected
+2026-08-30 00:25:03,799 | INFO | __main__ | Cleaning the data by removing leading and trailing spaces from column names
+2026-08-30 00:25:03,844 | WARNING | __main__ | Missing values detected: {'TotalCharges': 11}
+2026-08-30 00:25:03,844 | INFO | __main__ | Data cleaning completed. Final shape: (7043, 21)
+2026-08-30 00:25:03,844 | INFO | __main__ | Saving cleaned dataset to: /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/processed_data/cleaned_data.csv
+2026-08-30 00:25:03,871 | INFO | __main__ | Cleaned dataset saved successfully. Shape: (7043, 21)
+2026-08-30 00:25:03,871 | INFO | __main__ | Data processing pipeline completed successfully
+2026-08-30 00:25:03,872 | INFO | __main__ | Data processing script completed successfully

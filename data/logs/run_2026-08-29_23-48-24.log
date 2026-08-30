@@ -1,0 +1,6 @@
+2026-08-29 23:48:26,575 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-29 23:48:26,575 | INFO | src.config | Created config class for DatasetConfig
+2026-08-29 23:48:26,576 | INFO | src.config | Created config class for ModelConfig
+2026-08-29 23:48:26,576 | INFO | src.config | Created config class for TrainingConfig
+2026-08-29 23:48:26,576 | INFO | src.config | Created config class for UnitTest
+2026-08-29 23:48:26,576 | INFO | src.config | Created config class for DataPath

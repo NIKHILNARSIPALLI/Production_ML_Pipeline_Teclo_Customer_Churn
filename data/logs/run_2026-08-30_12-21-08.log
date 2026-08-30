@@ -1,0 +1,20 @@
+2026-08-30 12:21:08,331 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-30 12:21:08,331 | INFO | src.config | Created config class for DatasetConfig
+2026-08-30 12:21:08,331 | INFO | src.config | Created config class for ModelConfig
+2026-08-30 12:21:08,332 | INFO | src.config | Created config class for TrainingConfig
+2026-08-30 12:21:08,332 | INFO | src.config | Created config class for UnitTest
+2026-08-30 12:21:08,333 | INFO | src.config | Created config class for DataPath
+2026-08-30 12:23:09,834 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-08-30 12:23:09,835 | INFO | src.config | Created config class for DatasetConfig
+2026-08-30 12:23:09,836 | INFO | src.config | Created config class for ModelConfig
+2026-08-30 12:23:09,837 | INFO | src.config | Created config class for TrainingConfig
+2026-08-30 12:23:09,839 | INFO | src.config | Created config class for UnitTest
+2026-08-30 12:23:09,840 | INFO | src.config | Created config class for DataPath
+2026-08-30 12:23:09,841 | INFO | src.data | Cleaning the data by removing leading and trailing spaces from column names
+2026-08-30 12:23:09,900 | WARNING | src.data | Missing values detected: {'TotalCharges': 11}
+2026-08-30 12:23:09,900 | INFO | src.data | Data cleaning completed. Final shape: (7043, 21)
+2026-08-30 12:23:49,140 | INFO | src.data | Validating the columns of the dataset
+2026-08-30 12:23:49,141 | INFO | src.data | Validation Complete - Columns in the dataset are as expected
+2026-08-30 12:23:49,142 | INFO | src.data | Cleaning the data by removing leading and trailing spaces from column names
+2026-08-30 12:23:49,179 | WARNING | src.data | Missing values detected: {'TotalCharges': 11}
+2026-08-30 12:23:49,179 | INFO | src.data | Data cleaning completed. Final shape: (7043, 21)

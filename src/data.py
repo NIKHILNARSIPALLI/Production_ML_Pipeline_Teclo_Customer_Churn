@@ -8,9 +8,7 @@ logger = set_logger(__name__)
 
 #Now, let's import the required libraries
 import pandas as pd
-import numpy as np
 from pathlib import Path
-from datetime import datetime
 
 
 
@@ -98,6 +96,34 @@ def validate_columns(df: pd.DataFrame) -> None:
     return None
 
 
+def handle_missing_values(df: pd.DataFrame, missing_columns: pd.Series, missing_values: pd.Series) -> pd.DataFrame:
+    """
+    This function handles missing values in the dataframe by filling or dropping them as appropriate
+    """
+
+    logger.info(f"Handling missing values in the dataset")
+
+    #This handles TotalCharges column
+    if "TotalCharges" in missing_columns:
+        # Fill missing TotalCharges for new customers with tenure 0
+        df.loc[df["tenure"] == 0, "TotalCharges"] = 0
+        logger.info(
+            "Filled missing TotalCharges for new customers with tenure 0. Remaining missing values: %d",
+            df["TotalCharges"].isna().sum()
+        )
+
+        # Drop any remaining rows with missing TotalCharges
+        df = df.dropna(subset=["TotalCharges"])
+        logger.info(
+            "Dropped remaining rows with missing TotalCharges. Remaining missing values: %d",
+            df["TotalCharges"].isna().sum()
+        )
+
+    # Add more statements as you go to handle the missing values
+
+    return df
+
+
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function cleans the data by removing any leading or trailing spaces from the column names
@@ -151,6 +177,10 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
             "Missing values detected: %s",
             missing_columns.to_dict()
         )
+
+        #Let's handle the missing values in the dataset
+        df = handle_missing_values(df,missing_columns,missing_values)
+
 
     logger.info(
         "Data cleaning completed. Final shape: %s",
@@ -209,7 +239,7 @@ def process_data() -> pd.DataFrame:
 
 
 if __name__ == '__main__':
-    
+
     logger.info("Starting data processing script")
     try:
         process_data()

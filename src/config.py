@@ -5,7 +5,6 @@ import yaml
 
 
 #Let's set up the logger
-import data
 from src.logger import set_logger
 
 logger = set_logger(__name__)
