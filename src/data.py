@@ -247,3 +247,7 @@ if __name__ == '__main__':
         logger.critical(f"Data processing failed: {e}")
         raise
     logger.info("Data processing script completed successfully")
+
+
+
+

@@ -92,6 +92,10 @@ class DataPath:
      processed_data_dir: str
      cleaened_datasetName : str
 
+@dataclass
+class featuresConfig:
+     train_test_split_test_size: float
+     train_test_split_random_state: int
 
 # This contains the configs of all the dataclasses and defines which class object each name contains
 @dataclass
@@ -101,6 +105,7 @@ class Configs:
      training: TrainingConfig # type: ignore
      unitTest : UnitTest # type: ignore
      dataPath : DataPath
+     features : featuresConfig
 
 
 
@@ -140,6 +145,10 @@ def load_config() -> Configs:
 
           dataPath= create_config(
                DataPath, raw["DataPath"]
+          ),# type: ignore
+
+          features = create_config(
+               featuresConfig, raw["features"]
           )# type: ignore
 
 

@@ -10,6 +10,9 @@ DataPath:
   datasetName : "WA_Fn-UseC_-Telco-Customer-Churn.csv"
   cleaened_datasetName : "cleaned_data.csv"
 
+features:
+  train_test_split_test_size: 0.2
+  train_test_split_random_state: 42
 
 dataset:
   root_dir: "MNIST"
