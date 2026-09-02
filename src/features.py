@@ -74,14 +74,12 @@ logger = set_logger(__name__)
 
 # Let's prepare the features
 def prepare_features(df : pd.DataFrame):
-
     logger.info("Preparing features for modeling")
 
 
     # Let's separate the target and features
     X = df.drop(columns = ["Churn", "customerID"])
-    y = df["Churn"].map({"Yes": 1, "No": 0})
-
+    y = df["Churn"].map({"Yes": 1, "No": 0}) # This is basically one-hot encoding i.e., converting the variable to 0/1 for modeling
 
     #Let's identify the numerical and categorical columns
     # These help in building the ColumnTransformer for preprocessing
