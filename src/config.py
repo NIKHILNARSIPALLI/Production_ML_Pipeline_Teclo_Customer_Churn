@@ -67,6 +67,8 @@ class DatasetConfig:
 
 @dataclass
 class ModelConfig:
+     model_path_parent : str
+     model_path_main : str
      model_name :str # type: ignore
      model_type :str # type: ignore
 

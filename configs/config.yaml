@@ -20,6 +20,8 @@ dataset:
   test_subdir: "test"
 
 model:
+  model_path_parent : "data"
+  model_path_main : "models"
   model_name: "CNN"
   model_type: "CNN"
 
