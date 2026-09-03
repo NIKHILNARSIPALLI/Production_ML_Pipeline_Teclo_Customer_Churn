@@ -56,8 +56,8 @@ features.py
 
 """
 
-from logger import set_logger
-from config import load_config
+from src.logger import set_logger
+from src.config import load_config
 
 import pandas as pd
 import numpy as np
@@ -83,8 +83,8 @@ def prepare_features(df : pd.DataFrame):
 
     #Let's identify the numerical and categorical columns
     # These help in building the ColumnTransformer for preprocessing
-    numerical_cols = X.select_dtypes(include=np.number).columns.tolist()
-    categorical_cols = X.select_dtypes(exclude=np.number).columns.tolist()
+    numerical_cols = X.select_dtypes(include=np.number).columns.tolist()   # type: ignore
+    categorical_cols = X.select_dtypes(exclude=np.number).columns.tolist() # type:ignore
 
     # Let's log the results
     logger.info(f"Numerical columns: {numerical_cols}")
@@ -133,7 +133,20 @@ if __name__ == "__main__":
     print("This is a module for feature engineering and preprocessing. It is not meant to be run directly.")
     logger.warning("This is a module for feature engineering and preprocessing. It is not meant to be run directly.")
 
+"""
+from src.data import load_data
+from src.features import prepare_features
+from src.train import train_model
 
+
+df = load_data()
+
+X_train, X_test, y_train, y_test, preprocessor = prepare_features(df)
+
+model = train_model(
+    X_train,
+    y_train
+)"""
 
        
 
