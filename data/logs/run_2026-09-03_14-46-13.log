@@ -1,0 +1,50 @@
+2026-09-03 14:46:14,181 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-09-03 14:46:14,181 | INFO | src.config | Created config class for DatasetConfig
+2026-09-03 14:46:14,182 | INFO | src.config | Created config class for ModelConfig
+2026-09-03 14:46:14,182 | INFO | src.config | Created config class for TrainingConfig
+2026-09-03 14:46:14,182 | INFO | src.config | Created config class for UnitTest
+2026-09-03 14:46:14,182 | INFO | src.config | Created config class for DataPath
+2026-09-03 14:46:14,182 | INFO | src.config | Created config class for featuresConfig
+2026-09-03 14:46:24,671 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-09-03 14:46:24,671 | INFO | src.config | Created config class for DatasetConfig
+2026-09-03 14:46:24,672 | INFO | src.config | Created config class for ModelConfig
+2026-09-03 14:46:24,672 | INFO | src.config | Created config class for TrainingConfig
+2026-09-03 14:46:24,672 | INFO | src.config | Created config class for UnitTest
+2026-09-03 14:46:24,672 | INFO | src.config | Created config class for DataPath
+2026-09-03 14:46:24,672 | INFO | src.config | Created config class for featuresConfig
+2026-09-03 14:46:24,673 | INFO | src.config | Loaded the yaml file from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/configs/config.yaml
+2026-09-03 14:46:24,673 | INFO | src.config | Created config class for DatasetConfig
+2026-09-03 14:46:24,673 | INFO | src.config | Created config class for ModelConfig
+2026-09-03 14:46:24,673 | INFO | src.config | Created config class for TrainingConfig
+2026-09-03 14:46:24,674 | INFO | src.config | Created config class for UnitTest
+2026-09-03 14:46:24,674 | INFO | src.config | Created config class for DataPath
+2026-09-03 14:46:24,674 | INFO | src.config | Created config class for featuresConfig
+2026-09-03 14:46:24,674 | INFO | __main__ | Initializing training process
+2026-09-03 14:46:24,674 | INFO | src.data | Starting data processing pipeline
+2026-09-03 14:46:24,674 | INFO | src.data | Loading the data from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/raw_data/WA_Fn-UseC_-Telco-Customer-Churn.csv
+2026-09-03 14:46:24,697 | INFO | src.data | Data loaded successfully from /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/raw_data/WA_Fn-UseC_-Telco-Customer-Churn.csv
+2026-09-03 14:46:24,697 | INFO | src.data | Data shape: 7043Rows, 21 Columns
+2026-09-03 14:46:24,697 | INFO | src.data | Validating the columns of the dataset
+2026-09-03 14:46:24,697 | INFO | src.data | Validation Complete - Columns in the dataset are as expected
+2026-09-03 14:46:24,697 | INFO | src.data | Cleaning the data by removing leading and trailing spaces from column names
+2026-09-03 14:46:24,731 | WARNING | src.data | Missing values detected: {'TotalCharges': 11}
+2026-09-03 14:46:24,731 | INFO | src.data | Handling missing values in the dataset
+2026-09-03 14:46:24,732 | INFO | src.data | Filled missing TotalCharges for new customers with tenure 0. Remaining missing values: 0
+2026-09-03 14:46:24,732 | INFO | src.data | Dropped remaining rows with missing TotalCharges. Remaining missing values: 0
+2026-09-03 14:46:24,732 | INFO | src.data | Data cleaning completed. Final shape: (7043, 21)
+2026-09-03 14:46:24,732 | INFO | src.data | Saving cleaned dataset to: /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/processed_data/cleaned_data.csv
+2026-09-03 14:46:26,981 | INFO | src.data | Cleaned dataset saved successfully. Shape: (7043, 21)
+2026-09-03 14:46:26,981 | INFO | src.data | Data processing pipeline completed successfully
+2026-09-03 14:46:26,981 | INFO | __main__ | read and processed data csv file
+2026-09-03 14:46:26,982 | INFO | src.features | Preparing features for modeling
+2026-09-03 14:46:26,983 | INFO | src.features | Numerical columns: ['SeniorCitizen', 'tenure', 'MonthlyCharges', 'TotalCharges']
+2026-09-03 14:46:26,983 | INFO | src.features | Categorical columns: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+2026-09-03 14:46:27,006 | INFO | src.features | Train/Test split done with test size 0.2 and random state 42
+2026-09-03 14:46:27,006 | INFO | src.features | Train shape: (5634, 19), Test shape: (1409, 19)
+2026-09-03 14:46:27,022 | INFO | src.features | Preprocessor fitted on training data
+2026-09-03 14:46:27,037 | INFO | src.features | Training and test data transformed using the fitted preprocessor
+2026-09-03 14:46:27,037 | INFO | __main__ | completed train test split and preprocessor
+2026-09-03 14:46:27,037 | INFO | src.train | started model training process
+2026-09-03 14:46:27,065 | INFO | src.train | Model training completed
+2026-09-03 14:46:27,066 | INFO | src.train | Model LogisticRegression, saved to /Users/nikhilnarsipalli/Documents/UNIVERSITY/Projects/MLOps /2nd day project/data/models/LogisticRegression_2026-09-03_14-46-27.joblib
+2026-09-03 14:46:27,066 | INFO | __main__ | Completed model training
